@@ -18,13 +18,26 @@ void swapp(T *ptr_a, T *ptr_b){
 }
 
 int main(){
-
+/*
     //Задача 1
     int a = 5;
     int b = 6;
     swapp(&a, &b);
     cout << a << " " << b << endl;
-
+*/
+    //Задача 2
+    cout << "Enter the number n" << endl;
+    int n;
+    cin >> n;
+    int *a = new int [n];
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    swapp(&(a[0]), &(a[n-1]));
+    for(int i = 0; i < n; i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
