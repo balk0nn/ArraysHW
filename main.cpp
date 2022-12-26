@@ -41,9 +41,9 @@ int main(){
     }
     cout << endl;
 */
-
+/*
     //Задача 6
-    int *array = new int[14];
+    auto *array = new double[14];
     for(int i = 0; i < 14; i++){
         cin >> array[i];
     }
@@ -57,6 +57,8 @@ int main(){
     }
     cout << endl;
     cout << "Total of "<< switchCount << " swaps" << endl;
+*/
+
 
     return 0;
 }
