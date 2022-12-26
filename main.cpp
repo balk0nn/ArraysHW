@@ -25,6 +25,8 @@ int main(){
     swapp(&a, &b);
     cout << a << " " << b << endl;
 */
+
+/*
     //Задача 2
     cout << "Enter the number n" << endl;
     int n;
@@ -38,6 +40,23 @@ int main(){
         cout << a[i] << " ";
     }
     cout << endl;
+*/
+
+    //Задача 6
+    int *array = new int[14];
+    for(int i = 0; i < 14; i++){
+        cin >> array[i];
+    }
+    int switchCount = 0;
+    for(int i = 0; i < 7; i++){
+        swapp(&(array[i]), &(array[i + 7]));
+        switchCount ++;
+    }
+    for(int i = 0; i < 14; i++){
+        cout << array[i] << " ";
+    }
+    cout << endl;
+    cout << "Total of "<< switchCount << " swaps" << endl;
 
     return 0;
 }
