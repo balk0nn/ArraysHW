@@ -17,6 +17,49 @@ void swapp(T *ptr_a, T *ptr_b){
     delete ptr_c;
 }
 
+void task5Sort(){
+    cout << "Enter the length of your array" << endl;
+    int length;
+    cin >> length;
+    int *arrayTask5 = new int[length];
+    int countNegatives = 0;
+    for(int i = 0; i < length; i++){
+        cin >> arrayTask5[i];
+        if(arrayTask5[i] < 0){
+            countNegatives ++;
+        }
+    }
+    for(int i = 0; i < length; i++){
+        cout << arrayTask5[i] << " ";
+    }
+    cout << endl;
+    int *Negatives = new int[countNegatives];
+    int *everythingElse = new int[length - countNegatives];
+    int negativeCounter = 0;
+    //Записываем отрицательные и все остальные элементы в соответствующие массивы
+    for(int i = 0; i < length; i++){
+        if(arrayTask5[i] < 0){
+            Negatives[negativeCounter] = arrayTask5[i];
+            negativeCounter ++;
+        }
+        else {
+            everythingElse[i - negativeCounter] = arrayTask5[i];
+        }
+    }
+    //Перезаписываем основной массив в нужном порядке
+    for(int i = 0; i < length; i++){
+        if(i < countNegatives){
+            arrayTask5[i] = Negatives[i];
+        }
+        else{
+            arrayTask5[i] = everythingElse[i - countNegatives];
+        }
+    }
+    for(int i = 0; i < length; i++){
+        cout << arrayTask5[i] << " ";
+    }
+}
+
 int main(){
 /*
     //Задача 1
@@ -59,6 +102,7 @@ int main(){
     cout << "Total of "<< switchCount << " swaps" << endl;
 */
 
-
+    //Задача 5
+    task5Sort();
     return 0;
 }
