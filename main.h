@@ -3,10 +3,11 @@
 //
 
 #include <iostream>
+#include <cmath>
 #ifndef ARRAYSHW_MAIN_H
 #define ARRAYSHW_MAIN_H
 
-void swap(int a, int b);
+void swap();
 
 #endif //ARRAYSHW_MAIN_H
 

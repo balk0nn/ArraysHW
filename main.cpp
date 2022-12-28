@@ -203,6 +203,54 @@ int main(){
     //Задача 5
     //task5Sort();
     //Задача 9
-    task9Sort();
+    //task9Sort();
+
+
+    //Зададча 10
+    cout << "Enter the length of the first array" << endl;
+    int length1;
+    cin >> length1;
+    double *array1 = new double[length1];
+    cout << "Enter elements of the first array" << endl;
+    for(int i = 0; i < length1; i++){
+        cin >> array1[i];
+    }
+    for(int i = 0; i < length1; i++){
+        cout << array1[i] << " ";
+    }
+    cout << endl;
+    cout << "Enter the length of the first array" << endl;
+    int length2;
+    cin >> length2;
+    double *array2 = new double[length2];
+    cout << "Enter elements of the second array" << endl;
+    for(int i = 0; i < length1; i++){
+        cin >> array2[i];
+    }
+    for(int i = 0; i < length2; i++){
+        cout << array2[i] << " ";
+    }
+    cout << endl;
+    double *max1_ptr = &array1[0], *max2_ptr = &array2[0];
+    for(int i = 0; i < length1; i++){
+        if(*&array1[i] > *max1_ptr){
+            max1_ptr = &array1[i];
+        }
+    }
+    for(int i = 0; i < length2; i++){
+        if(*&array2[i] > *max2_ptr){
+            max2_ptr = &array2[i];
+        }
+    }
+    swapp( max1_ptr, max2_ptr);
+    cout << "after swapping" << endl;
+    for(int i = 0; i < length1; i++){
+        cout << array1[i] << " ";
+    }
+    cout << endl;
+    for(int i = 0; i < length2; i++){
+        cout << array2[i] << " ";
+    }
+
     return 0;
 }
