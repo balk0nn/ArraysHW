@@ -65,6 +65,28 @@ void swapp(T *ptr_a, T *ptr_b){
     delete ptr_c;
 }
 
+void task1(){
+    int a = 5;
+    int b = 6;
+    swapp(&a, &b);
+    cout << a << " " << b << endl;
+}
+
+void task2(){
+    cout << "Enter the number n" << endl;
+    int n;
+    cin >> n;
+    int *a = new int [n];
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    swapp(&(a[0]), &(a[n-1]));
+    for(int i = 0; i < n; i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
 void task5Sort(){
     cout << "Enter the length of your array" << endl;
     int length;
@@ -108,6 +130,23 @@ void task5Sort(){
     }
 }
 
+
+void task6(){
+    auto *array = new double[14];
+    for(int i = 0; i < 14; i++){
+        cin >> array[i];
+    }
+    int switchCount = 0;
+    for(int i = 0; i < 7; i++){
+        swapp(&(array[i]), &(array[i + 7]));
+        switchCount ++;
+    }
+    for(int i = 0; i < 14; i++){
+        cout << array[i] << " ";
+    }
+    cout << endl;
+    cout << "Total of "<< switchCount << " swaps" << endl;
+}
 
 void task9Sort(){
     cout << "Enter the length of your array" << endl;
@@ -158,55 +197,7 @@ void task9Sort(){
     }
 }
 
-int main(){
-/*
-    //Задача 1
-    int a = 5;
-    int b = 6;
-    swapp(&a, &b);
-    cout << a << " " << b << endl;
-*/
-
-/*
-    //Задача 2
-    cout << "Enter the number n" << endl;
-    int n;
-    cin >> n;
-    int *a = new int [n];
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-    }
-    swapp(&(a[0]), &(a[n-1]));
-    for(int i = 0; i < n; i++){
-        cout << a[i] << " ";
-    }
-    cout << endl;
-*/
-/*
-    //Задача 6
-    auto *array = new double[14];
-    for(int i = 0; i < 14; i++){
-        cin >> array[i];
-    }
-    int switchCount = 0;
-    for(int i = 0; i < 7; i++){
-        swapp(&(array[i]), &(array[i + 7]));
-        switchCount ++;
-    }
-    for(int i = 0; i < 14; i++){
-        cout << array[i] << " ";
-    }
-    cout << endl;
-    cout << "Total of "<< switchCount << " swaps" << endl;
-*/
-
-    //Задача 5
-    //task5Sort();
-    //Задача 9
-    //task9Sort();
-
-
-    //Зададча 10
+void task10(){
     cout << "Enter the length of the first array" << endl;
     int length1;
     cin >> length1;
@@ -251,6 +242,27 @@ int main(){
     for(int i = 0; i < length2; i++){
         cout << array2[i] << " ";
     }
+}
+
+int main(){
+
+    //Задача 1
+    //task1();
+
+    //Задача 2
+    //task2();
+
+    //Задача 6
+    //task6();
+
+    //Задача 5
+    //task5Sort();
+
+    //Задача 9
+    //task9Sort();
+
+    //Зададча 10
+    //task10();
 
     return 0;
 }
