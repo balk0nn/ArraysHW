@@ -87,6 +87,36 @@ void task2(){
     cout << endl;
 }
 
+void task4() {
+    double arr[12];
+    int t = 0;
+    cout << "Input array: ";
+    for (int i = 0; i < 12; i++) {
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < 12 - 1; i++)
+    {
+        for (int j = i + 1; j < 12; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                double* d = new double;
+                *d = arr[i];
+                arr[i] = arr[j];
+                arr[j] = *d;
+                delete d;
+                t++;
+            }
+        }
+    }
+    cout << "Descending: ";
+    for (int i = 0; i < 12; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "Number of permutations: " << t << endl;
+}
+
 void task5Sort(){
     cout << "Enter the length of your array" << endl;
     int length;
@@ -251,6 +281,18 @@ int main(){
 
     //Задача 2
     //task2();
+    
+    //Задача 3
+    double** p = 0;
+    p = new double*;
+    *p = new double;
+    **p = 2;
+    cout << **p<<endl;
+    delete* p;
+    delete p;
+
+    //Задача 4
+    //task4();
 
     //Задача 6
     //task6();
