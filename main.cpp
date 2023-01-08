@@ -198,9 +198,43 @@ void task7(T arr[], int size){
     cout << numb << endl;
 }
 
+template <typename T>
+void task81(T arr, int stroka) {
+    //Эта функция находит нули и считает нужную сумму чисел.
+    //Искомый массив можно рассматривать как одномерный за счёт передачи номера строки
+    int size = sizeof(arr[stroka]) / sizeof(arr[stroka][0]);
+    int firstzero;
+    int  secondzero;
+    double between = 0;
+    //Нахождение первого нуля
+    for (int i = size - 1; i >= 0; i--) {
+        if (arr[stroka][i] == 0) {
+            firstzero = i;
+        }
+    }
+    //Нахождение второго нуля в строке
+    for (int i = 0; i < size; i++) {
+        if (arr[stroka][i] == 0) {
+            secondzero = i;
+        }
+    }
+    for (int i = firstzero + 1; i < secondzero; i++) {
+        between = between + arr[stroka][i];
+    }
+    cout << between<<endl;
+}
 
-
-
+void task8() {
+    int arr[3][6] = {
+    {1, 0, 3, 6, 2, 0},
+    {3, 7, 0, 4, 0, 1} ,
+    {0, 0, 2, 3, 7, 5}};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    //Каждую строку отправляем в функцию вместе с самим массивом  
+    for (int i = 0; i < size; i++) {
+        task81(arr, i);
+    }
+}
 
 void task9Sort(){
     cout << "Enter the length of your array" << endl;
@@ -324,11 +358,14 @@ int main(){
     //Задача 5
     //task5Sort();
 
-     //Задача 7
-    double arr2[6] = { 3.5, 2, 4, 0, 1, 3 };
-    int size2 = sizeof(arr2) / sizeof(arr2[0]);
-   //В функцию отправляются сам массив и размер. Массивы могут быть разных типов
-   task7(arr2, size2);
+    //Задача 7
+    //double arr2[6] = { 3.5, 2, 4, 0, 1, 3 };
+    //int size2 = sizeof(arr2) / sizeof(arr2[0]);
+   //В функцию отправляются сам массив и размер. (Массивы могут быть разных типов)
+   //task7(arr2, size2);
+    
+    //Задача 8
+    //task8();
     
     //Задача 9
     //task9Sort();
