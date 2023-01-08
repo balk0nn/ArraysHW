@@ -177,6 +177,30 @@ void task6(){
     cout << endl;
     cout << "Total of "<< switchCount << " swaps" << endl;
 }
+template <typename T>
+int task71(T arr[], int i) { 
+    //Сравнение числа с предыдущим и последующим в массиве
+    if ((arr[i] < arr[i + 1]) && (arr[i ] < arr[i - 1])) {
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+template <typename T>
+void task7(T arr[], int size){
+    int numb = 0;
+    for (int i = 1; i < size - 1; i++) {
+        if ( task71( arr, i) == 1 ) {
+            numb=numb+1;
+        }
+    }
+    cout << numb << endl;
+}
+
+
+
+
 
 void task9Sort(){
     cout << "Enter the length of your array" << endl;
@@ -300,6 +324,12 @@ int main(){
     //Задача 5
     //task5Sort();
 
+     //Задача 7
+    double arr2[6] = { 3.5, 2, 4, 0, 1, 3 };
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+   //В функцию отправляются сам массив и размер. Массивы могут быть разных типов
+   task7(arr2, size2);
+    
     //Задача 9
     //task9Sort();
 
