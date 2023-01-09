@@ -332,6 +332,41 @@ void task10(){
     }
 }
 
+void task12() {
+    int arr[3][6] = {
+    {1, 0, 3, 9, 2, 0},
+    {3, 7, 0, 4, 0, 1} ,
+    {0, 0, 2, 3, 2, 3} };
+     //Находим количество строк и столбцов. Определяем номер максимальной и минимальной строки и их значения. Изначально 0-ая строка берётся за максимум и минимум
+    int sizestrok = sizeof(arr) / sizeof(arr[0]);
+    int sizestolb = sizeof(arr[0]) / sizeof(arr[0][0]);
+    int maxstr=0;
+    int minstr=0;
+    int max = 0;
+    int min = 0;
+    for (int i = 0; i < sizestolb; i++) {
+        max = max + arr[0][i];
+    }
+    min = max;
+    //В каждой строке считаем сумму. Сравниваем с макс и мин
+    for (int strok = 0; strok < sizestrok; strok++) {
+        int sum = 0;
+        for (int i = 0; i < sizestolb; i++) {
+            sum = sum + arr[strok][i];
+        }
+        if (sum > max) {
+            max = sum;
+            maxstr = strok;
+        }
+        if (sum < min) {
+            min = sum;
+            minstr = strok;
+        }
+    }
+    cout << "MIN " << minstr << endl << "MAX  " << maxstr << endl;
+}
+
+
 //Задача 13
 void task13(){
 
@@ -417,6 +452,9 @@ int main(){
     //Зададча 10
     //task10();
 
+    //Задача 12
+    //task12();
+    
     //Задача 13
     //task13();
     return 0;
