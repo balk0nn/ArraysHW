@@ -244,6 +244,48 @@ void task10(){
     }
 }
 
+//Задача 13
+void task13(){
+
+    //Просим ввести длины массивов
+    int m, n;
+    cout << "Enter the length of the first array" << endl;
+    cin >> m;
+    cout << "Enter the length of the second array" << endl;
+    cin >> n;
+
+    //создаем массивы как сказано в условии
+    int *nums1 = new int[m + n];
+    int *nums2 = new int[n];
+    cout << "Enter the elements of the first array" << endl;
+
+    //Заполняем массивы следуя условиям
+    for(int i = 0; i < m + n; i++){
+        if(i < m){
+            cin >> nums1[i];
+        }
+        else{
+            nums1[i] = 0;
+        }
+    }
+    cout << "Enter the elements of the second array" << endl;
+    for (int i = 0; i < n; i++){
+        cin >> nums2[i];
+    }
+
+    //Переносим второй массив в конец первого (вместо нулей)
+    for(int i = m; i < m + n; i++){
+        nums1[i] = nums2[i - m];
+    }
+    quickSort(nums1,0,m + n - 1);
+
+    //Выводим отсортированный массив
+    for(int i = 0; i < m + n; i++){
+        cout << nums1[i] << " ";
+    }
+
+}
+
 int main(){
 
     //Задача 1
@@ -264,5 +306,7 @@ int main(){
     //Зададча 10
     //task10();
 
+    //Задача 13
+    task13();
     return 0;
 }
