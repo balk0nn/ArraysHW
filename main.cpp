@@ -409,6 +409,38 @@ void task13(){
 
 }
 
+//Структура, хранящая стоимость покупки и продажи, а также прибыль
+struct stock{
+        double buy;
+        double sell;
+        double profit = sell - buy;
+    };
+
+void task14(){
+    cout << "Enter the number of days" << endl;
+    int n;
+    cin >> n;
+    auto *array = new double[n];
+
+    cout << "Enter the prices of stocks on I-th day" << endl;
+    //Заполняем массив
+    for(int i = 0; i < n; i++){
+        cin >> array[i];
+    }
+    stock zeroProfit = stock{0,0,0};
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < n; j++){
+            stock temporary = stock{array[i], array[j], array[j] - array[i]};
+            if(temporary.profit > zeroProfit.profit){
+                zeroProfit = temporary;
+            }
+        }
+    }
+
+    //Выводим ответ, если получить прибыль невозможно, то выведется 0, так как он стоит по умолчанию
+    cout << "The maximum possible profit is " << zeroProfit.profit << endl;
+}
+
 int main(){
 
     //Задача 1
@@ -457,5 +489,8 @@ int main(){
     
     //Задача 13
     //task13();
+
+    //Задача 14
+    //task14();
     return 0;
 }
