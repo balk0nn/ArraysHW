@@ -177,6 +177,7 @@ void task6(){
     cout << endl;
     cout << "Total of "<< switchCount << " swaps" << endl;
 }
+//Задача 7
 template <typename T>
 int task71(T arr[], int i) { 
     //Сравнение числа с предыдущим и последующим в массиве
