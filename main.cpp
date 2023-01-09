@@ -479,6 +479,30 @@ void task14(){
 
     //Выводим ответ, если получить прибыль невозможно, то выведется 0, так как он стоит по умолчанию
     cout << "The maximum possible profit is " << zeroProfit.profit << endl;
+    
+    //Задача 15
+    //Рекурсивная функция для факториала
+int factorial(int i){
+
+  if (i==0){ 
+      return 1;
+      }else{
+        return i*factorial(i-1);}}
+
+void task15(int nr) { 
+    //Создаём динамический массив 
+    int *arr = new int[nr];
+    //Заполняем его по принципу биномиальных коэффициентов
+    for(int i = 0; i <nr; i++){
+        arr[i] = (factorial(nr-1))/(factorial(i)*factorial(nr-i-1)); }
+    //А потом печатаем и удаляем
+    cout << " Result:";
+    for (int i = 0; i < nr; i++) {
+            cout << arr[i]<<" "; }
+    delete[] arr;}
+
+
+
 }
 
 int main(){
@@ -535,5 +559,12 @@ int main(){
 
     //Задача 14
     //task14();
+    
+    
+    //Задача 15
+    //int numRows;
+    //cout << " Input: ";
+    //cin>>numRows;
+    //task15(numRows);
     return 0;
 }
