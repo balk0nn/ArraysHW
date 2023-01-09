@@ -86,7 +86,7 @@ void task2(){
     }
     cout << endl;
 }
-
+//Задача 4
 void task4() {
     double arr[12];
     int t = 0;
@@ -197,7 +197,7 @@ void task7(T arr[], int size){
     }
     cout << numb << endl;
 }
-
+//Задача 8
 template <typename T>
 void task81(T arr, int stroka) {
     //Эта функция находит нули и считает нужную сумму чисел.
@@ -331,7 +331,46 @@ void task10(){
         cout << array2[i] << " ";
     }
 }
+//Задача 11
+void task11() {
+    double arr[3][6] = {
+    {1, 0.5, 3, 6, 2, 0},
+    {3, 7, 0, 4.6, 0, 1.8} ,
+    {0, 0, 2, 3.1, 7.0, 5} };
 
+    //Находим количество столбцов и строк в массиве
+    int sizestolb = sizeof(arr[0]) / sizeof(arr[0][0]);
+    int size = sizeof(arr) / sizeof(arr[0]);
+    //Печать изначального массива
+    for (int strok = 0; strok < size; strok++) {
+        for (int stolb = 0; stolb < sizestolb; stolb++) {
+            cout << arr[strok][stolb]<<" "; }
+        cout << endl; 
+    }
+    cout << endl;
+    //Выделяем память под вспомогательный массив
+    double *mesto = new double[size];
+    //Заполняем массив последним столбцом
+    for (int strok = 0; strok <= size; strok++) { 
+    mesto[strok] = arr[strok][sizestolb-1];    
+    }
+    //Смещаем все столбцы, а вотом заполняется первый из вспомогательного массива
+    for (int strok = 0; strok < size; strok++) { 
+        for (int stolb = sizestolb-1;stolb > 0 ; stolb--) { 
+        arr[strok][stolb] =  arr[strok][stolb-1];
+    }
+    arr[strok][0]= mesto[strok];
+}
+   //Удаляем вспомогательный массив
+    delete[] mesto;
+    //Печать итога
+    for (int strok = 0; strok < size; strok++) {
+       for (int stolb = 0; stolb < sizestolb; stolb++) {
+          cout << arr[strok][stolb]<<" ";
+       }cout << endl;
+}}
+
+//Задача 12
 void task12() {
     int arr[3][6] = {
     {1, 0, 3, 9, 2, 0},
@@ -451,6 +490,9 @@ int main(){
 
     //Зададча 10
     //task10();
+    
+     //Задача 11
+    //task11();
 
     //Задача 12
     //task12();
