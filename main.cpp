@@ -87,6 +87,36 @@ void task2(){
     cout << endl;
 }
 
+void task4() {
+    double arr[12];
+    int t = 0;
+    cout << "Input array: ";
+    for (int i = 0; i < 12; i++) {
+        cin >> arr[i];
+    }
+
+    for (int i = 0; i < 12 - 1; i++)
+    {
+        for (int j = i + 1; j < 12; j++)
+        {
+            if (arr[i] < arr[j])
+            {
+                double* d = new double;
+                *d = arr[i];
+                arr[i] = arr[j];
+                arr[j] = *d;
+                delete d;
+                t++;
+            }
+        }
+    }
+    cout << "Descending: ";
+    for (int i = 0; i < 12; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "Number of permutations: " << t << endl;
+}
+
 void task5Sort(){
     cout << "Enter the length of your array" << endl;
     int length;
@@ -146,6 +176,64 @@ void task6(){
     }
     cout << endl;
     cout << "Total of "<< switchCount << " swaps" << endl;
+}
+template <typename T>
+int task71(T arr[], int i) { 
+    //Сравнение числа с предыдущим и последующим в массиве
+    if ((arr[i] < arr[i + 1]) && (arr[i ] < arr[i - 1])) {
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+template <typename T>
+void task7(T arr[], int size){
+    int numb = 0;
+    for (int i = 1; i < size - 1; i++) {
+        if ( task71( arr, i) == 1 ) {
+            numb=numb+1;
+        }
+    }
+    cout << numb << endl;
+}
+
+template <typename T>
+void task81(T arr, int stroka) {
+    //Эта функция находит нули и считает нужную сумму чисел.
+    //Искомый массив можно рассматривать как одномерный за счёт передачи номера строки
+    int size = sizeof(arr[stroka]) / sizeof(arr[stroka][0]);
+    int firstzero;
+    int  secondzero;
+    double between = 0;
+    //Нахождение первого нуля
+    for (int i = size - 1; i >= 0; i--) {
+        if (arr[stroka][i] == 0) {
+            firstzero = i;
+        }
+    }
+    //Нахождение второго нуля в строке
+    for (int i = 0; i < size; i++) {
+        if (arr[stroka][i] == 0) {
+            secondzero = i;
+        }
+    }
+    for (int i = firstzero + 1; i < secondzero; i++) {
+        between = between + arr[stroka][i];
+    }
+    cout << between<<endl;
+}
+
+void task8() {
+    int arr[3][6] = {
+    {1, 0, 3, 6, 2, 0},
+    {3, 7, 0, 4, 0, 1} ,
+    {0, 0, 2, 3, 7, 5}};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    //Каждую строку отправляем в функцию вместе с самим массивом  
+    for (int i = 0; i < size; i++) {
+        task81(arr, i);
+    }
 }
 
 void task9Sort(){
@@ -293,6 +381,18 @@ int main(){
 
     //Задача 2
     //task2();
+    
+    //Задача 3
+    double** p = 0;
+    p = new double*;
+    *p = new double;
+    **p = 2;
+    cout << **p<<endl;
+    delete* p;
+    delete p;
+
+    //Задача 4
+    //task4();
 
     //Задача 6
     //task6();
@@ -300,6 +400,15 @@ int main(){
     //Задача 5
     //task5Sort();
 
+    //Задача 7
+    //double arr2[6] = { 3.5, 2, 4, 0, 1, 3 };
+    //int size2 = sizeof(arr2) / sizeof(arr2[0]);
+   //В функцию отправляются сам массив и размер. (Массивы могут быть разных типов)
+   //task7(arr2, size2);
+    
+    //Задача 8
+    //task8();
+    
     //Задача 9
     //task9Sort();
 
