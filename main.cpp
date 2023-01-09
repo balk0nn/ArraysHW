@@ -383,6 +383,7 @@ int main(){
     //task2();
     
     //Задача 3
+    /*
     double** p = 0;
     p = new double*;
     *p = new double;
@@ -390,6 +391,7 @@ int main(){
     cout << **p<<endl;
     delete* p;
     delete p;
+     */
 
     //Задача 4
     //task4();
@@ -416,6 +418,6 @@ int main(){
     //task10();
 
     //Задача 13
-    task13();
+    //task13();
     return 0;
 }
